@@ -1,0 +1,111 @@
+{
+    "Commands":[
+        {
+            "name":"eval",
+            "desc":"Executa um codigo em tempo real.",
+            "uso":"eval `code`",
+            "manutenção":false,
+            "aliases":[
+                "eval",
+                "e"
+            ]
+        },
+        {
+            "name":"ban",
+            "desc":"Remove um membro do servidor, e o impede de entrar novamente.",
+            "uso":"ban @Membro <Motivo>",
+            "manutenção":false,
+            "aliases":[
+                "ban",
+                "banir"
+            ]
+        },
+        {
+            "name":"kick",
+            "desc":"Remove um membro do servidor.",
+            "uso":"kick @Membro <Motivo>",
+            "manutenção":false,
+            "aliases":[
+                "kick",
+                "kickar",
+                "expulsar"
+            ]
+        },
+        {
+            "name":"setstaff",
+            "desc":"Adiciona cargo a um novo membro da staff.",
+            "uso":"setstaff @Membro @Role",
+            "manutenção":false,
+            "aliases":[
+                "setstaff",
+                "setrole",
+                "addstaff"
+            ]
+        },
+        {
+            "name":"aplicar-se",
+            "desc":"Envia o URL do formulario para aplicação à equipe.",
+            "uso":"aplicar-se",
+            "manutenção":false,
+            "aliases":[
+                "aplicar-se",
+                "form",
+                "formulario"
+            ]
+        },
+        {
+            "name":"tempban",
+            "desc":"Expulsa um membro e o impede temporariamente de entrar no servidor.",
+            "uso":"tempban @Membro <Dias> <Motivo>",
+            "manutenção":false,
+            "aliases":[
+                "tempban",
+                "timeban",
+                "tban"
+            ]
+        },
+        {
+            "name":"unban",
+            "desc":"Permite a entrada de um usuario antes banido do servidor.",
+            "uso":"unban @Membro `or` <ID>",
+            "manutenção":false,
+            "aliases":[
+                "unban",
+                "removeban",
+                "desbanir"
+            ]
+        },
+        {
+            "name":"mute",
+            "desc":"Impede determinado membro de falar no servidor, mas ainda permite-o ler os chats.",
+            "uso":"mute @Membro <Motivo>",
+            "manutenção":false,
+            "aliases":[
+                "mute",
+                "mutar",
+                "silenciar"
+            ]
+        },
+        {
+            "name":"unmute",
+            "desc":"Remove um silenciamento antes setado.",
+            "uso":"unmute @Membro",
+            "manutenção":false,
+            "aliases":[
+                "unmute",
+                "desmutar"
+            ]
+        },
+        {
+            "name":"cmdlist",
+            "desc":"Envia uma mensagem com todos os comandos e como utiliza-los.",
+            "uso":"cmdlist",
+            "manutenção":false,
+            "aliases":[
+                "cmdlist",
+                "cmds",
+                "help"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "cislav3",
+  "invite": "https://discord.com/api/oauth2/authorize?client_id=753527603612221532&permissions=8&scope=bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "TriniNz#0752",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0"
+  }
+}
