@@ -49,7 +49,7 @@ exports.run = async (Discord, client, raw) => {
         //Sistema de TICKETS.
         let checkExistChannel = Guild.channels.cache.find(c => c.topic && c.topic.includes(Author.user.id))
         if(checkExistChannel && raw.d.emoji.name == "❎" && checkExistChannel.id == raw.d.channel_id) checkExistChannel.delete().then(() => {
-            Guild.channels.cache.get(Captcha_ChannelLOG).send(new Discord.MessageEmbed()
+            Guild.channels.cache.get(Ticket_ChannelLogsID).send(new Discord.MessageEmbed()
                 .setFooter(`✅ | ${Author.user.username} (${Author.id}) encerrou seu ticket.`)
                 .setColor('#9900cc')
                 .setTimestamp()
@@ -83,11 +83,22 @@ exports.run = async (Discord, client, raw) => {
             await msg.pin()
             await msg.react('❎');
 
-            Guild.channels.cache.get(Captcha_ChannelLOG).send(new Discord.MessageEmbed()
+            Guild.channels.cache.get(Ticket_ChannelLogsID).send(new Discord.MessageEmbed()
                 .setFooter(`✅ | ${Author.user.username} (${Author.id}) iniciou um ticket sobre ${indetify(raw.d.emoji.name).split('-')[1]}`)
                 .setColor('#9900cc')
                 .setTimestamp()
             );
+
+            setTimeout(() => {
+
+                if(CH && CH.messages.cache.size == 2) CH.delete().then(() => {
+                    Guild.channels.cache.get(Ticket_ChannelLogsID).send(new Discord.MessageEmbed()
+                        .setFooter(`✅ | Um ticket de ${Author.user.username} (${Author.id}) sobre ${indetify(raw.d.emoji.name).split('-')[1]} foi encerrado por inatividade.`)
+                        .setColor('#9900cc')
+                        .setTimestamp()
+                    );
+                })
+            }, 15*1000)
         })
         //Sistema de TICKETS.
     }
@@ -104,7 +115,7 @@ exports.run = async (Discord, client, raw) => {
         let checkExistChannel = Guild.channels.cache.find(c => c.topic && c.topic.includes(Author.user.id))
 
         if(checkExistChannel && checkExistChannel.topic.substr(0,2) == raw.d.emoji.name) checkExistChannel.delete().then(() => {
-            Guild.channels.cache.get(Captcha_ChannelLOG).send(new Discord.MessageEmbed()
+            Guild.channels.cache.get(Ticket_ChannelLogsID).send(new Discord.MessageEmbed()
                 .setFooter(`✅ | ${Author.user.username} (${Author.id}) encerrou seu ticket.`)
                 .setColor('#9900cc')
                 .setTimestamp()

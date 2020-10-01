@@ -10,7 +10,7 @@ exports.run = async (Discord, client, message, args) => {
     let memberToSet = message.mentions.members.first(),
         adRoleSet = message.guild.roles.cache.get('735942305055506445');
         roleToSet = message.mentions.roles.first(),
-        logChannelID = '735663163097219112',
+        logChannelID = '761034961204674581',
         staffRoles = ['735940315403386921','754596104728871002','735940588221890741','735940702319673365','735940702319673365','735940876395741216'];
 
     if(!staffRoles.includes(roleToSet.id)) return message.channel.send(new Discord.MessageEmbed()

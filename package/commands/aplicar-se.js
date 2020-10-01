@@ -1,7 +1,7 @@
 exports.run = async (Discord, client, message, args) => {
 
-    let URLForm = 'https://google.com',
-        Vagas = false
+    let URLForm = 'https://docs.google.com/forms/d/e/1FAIpQLSewdIkGk_O6TG4yqkgVkIWlglUoODm9cxv1aWeodsyWQFJr4Q/viewform',
+        Vagas = true
 
     if(Vagas) return message.channel.send(new Discord.MessageEmbed()
         .setDescription(`Clique __[aqui](${URLForm})__ para abrir o formulario de aplicação à equipe.`)

@@ -19,7 +19,7 @@ const app = express();
 app.use(express.static("/app/package/sitehost/public"));
 
 app.get("/", function(request, response) {
-  response.sendFile(__dirname + "/views/sitehost/views/index.html");
+    response.sendFile(__dirname + "/package/sitehost/views/index.html");
 });
 
 const listener = app.listen(process.env.PORT, function() {
