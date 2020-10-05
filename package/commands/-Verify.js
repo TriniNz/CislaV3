@@ -27,7 +27,7 @@ exports.run = async (Discord, client, message, args, savetocaptcha) => {
                 message.channel.send("✅ | Você se registrou com sucesso.")
 
                 client.guilds.cache.get('735278653600170024').channels.cache.get(Captcha_ChannelLOG).send(new Discord.MessageEmbed()
-                    .setFooter(`✅ | ${message.user.username} (${message.id}) registrou-se.`)
+                    .setFooter(`✅ | ${message.author.username} (${message.author.id}) registrou-se.`)
                     .setColor('#9900cc')
                     .setTimestamp()
                 );

@@ -1,18 +1,19 @@
 exports.run = async (Discord, client, message, dbcmd, savetocaptcha) => {
 
     let prefix = "!",
-        musicChannelID = "760683203241181201";
+        musicChannelID = "760683203241181201",
+        CaptchaRole = '735291847789772885';
 
     if(message.author.bot) return;
     if(message.channel.id == musicChannelID) return;
 
-    if(message.channel.type == 'dm' && message.content.toLowerCase() == "verify" && !savetocaptcha) return require('../commands/-Verify.js').run(Discord, client, message, args, savetocaptcha);
-
-    if(message.channel.type == "dm") return;
-
     let args = message.content.trim().split(/ +/g),
         cmd = args.shift().toLowerCase().replace(prefix, ''),
         cmdValue = dbcmd.get('Commands');
+
+    if(message.channel.type == 'dm' && client.guilds.cache.get('735278653600170024').members.cache.get(message.author.id) && !client.guilds.cache.get('735278653600170024').members.cache.get(message.author.id).roles.cache.get(CaptchaRole) && message.content.toLowerCase() == "verify" && !savetocaptcha) return require('../commands/-Verify.js').run(Discord, client, message, args, savetocaptcha);
+
+    if(message.channel.type == "dm") return;
 
     if(message.content.indexOf(prefix) == 0) { 
         try {
