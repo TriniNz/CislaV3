@@ -1,10 +1,13 @@
-exports.run = async (Discord, client, message, dbcmd) => {
+exports.run = async (Discord, client, message, dbcmd, savetocaptcha) => {
 
     let prefix = "!",
-        musicChannelID = "";
+        musicChannelID = "760683203241181201";
 
     if(message.author.bot) return;
     if(message.channel.id == musicChannelID) return;
+
+    if(message.channel.type == 'dm' && message.content.toLowerCase() == "verify" && !savetocaptcha) return require('../commands/-Verify.js').run(Discord, client, message, args, savetocaptcha);
+
     if(message.channel.type == "dm") return;
 
     let args = message.content.trim().split(/ +/g),

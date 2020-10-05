@@ -6,45 +6,9 @@ exports.run = async (Discord, client, raw) => {
         Ticket_EveryoneID = "735278653600170024",
         Ticket_EmojiList = ["🛒","⚙️","🔑","📨","🤖","💡"];
 
-    let Captcha_MessageID = "754595685298339850",
-        Captcha_RoleADD = '735291847789772885',
-        Captcha_RoleREMOVE = '735290995985612802',
-        Captcha_ChannelLOG = '735661813882159244';
-
     if(raw.t == "MESSAGE_REACTION_ADD") {
         let Guild = client.guilds.cache.get('735278653600170024'),
             Author = Guild.members.cache.get(raw.d.user_id);
-
-        //Sistema de Captcha.
-        if(Author.roles.cache.get(Captcha_RoleREMOVE) && raw.d.message_id == Captcha_MessageID) Author.roles.add(Captcha_RoleADD).then(() => {
-            Author.roles.remove(Captcha_RoleREMOVE);
-            
-            Author.send(new Discord.MessageEmbed()
-                .setFooter("✅ | Você se registrou com sucesso.")
-                .setColor('#9900cc')
-                .setTimestamp()
-            ); 
-
-            Guild.channels.cache.get(Captcha_ChannelLOG).send(new Discord.MessageEmbed()
-                .setFooter(`✅ | ${Author.user.username} (${Author.id}) registrou-se.`)
-                .setColor('#9900cc')
-                .setTimestamp()
-            );
-        }).catch(err => {
-            
-            Author.send(new Discord.MessageEmbed()
-                .setFooter("❎ | Houve um erro ao realizar o registro.")
-                .setColor('#9900cc')
-                .setTimestamp()
-            ); 
-
-            Guild.channels.cache.get(Captcha_ChannelLOG).send(new Discord.MessageEmbed()
-                .setFooter(`❎ | Houve um erro ao realizar o registro de ${Author.user.username} (${Author.id})`)
-                .setColor('#9900cc')
-                .setTimestamp()
-            );
-        })
-        //Sistema de Captcha.
 
         //Sistema de TICKETS.
         let checkExistChannel = Guild.channels.cache.find(c => c.topic && c.topic.includes(Author.user.id))

@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+let savetocaptcha = false;
 
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -16,7 +17,7 @@ console.log('Iniciando...\n\n');
 const express = require("express");
 const app = express();
 
-app.use(express.static("/app/package/sitehost/public"));
+app.use(express.static("./package/sitehost/public"));
 
 app.get("/", function(request, response) {
     response.sendFile(__dirname + "/package/sitehost/views/index.html");
@@ -53,7 +54,7 @@ client.on('guildMemberRemove', member => {
 
 client.on('message', message => {
     try {
-        require("./package/events/message.js").run(Discord, client, message, dbcmd);   
+        require("./package/events/message.js").run(Discord, client, message, dbcmd, savetocaptcha);   
     } catch (err) {
         console.log(err + "\n\x1b[37m Houve um erro no evento message.")
     }
