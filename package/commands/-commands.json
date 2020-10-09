@@ -106,6 +106,17 @@
                 "cmds",
                 "help"
             ]
+        },
+        {
+            "name":"ip",
+            "desc":"Mostra as informações do servidor.",
+            "uso":"ip",
+            "manutenção":false,
+            "aliases":[
+                "ip",
+                "serverinfo",
+                "servidor"
+            ]
         }
     ]
 }

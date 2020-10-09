@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-let savetocaptcha = false;
+
+let savetocaptcha = false,
+//\|/ Logar codigos no bot de testes \|/
+    testInstance = false;
 
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -9,7 +12,6 @@ const cmdadapter = new FileSync('./package/commands/-commands.json');
 const dbcmd = low(cmdadapter);
 
 require('dotenv').config();
-const active = true;
 
 console.log('Iniciando...\n\n');
 
@@ -69,4 +71,4 @@ client.on('raw', raw => {
 });
 
 
-if(active) client.login(process.env.logintoken);
+if(!testInstance) {client.login(process.env.logintoken)} else {client.login(process.env.testInstanceToken)}

@@ -15,6 +15,12 @@ exports.run = async (Discord, client, message, dbcmd, savetocaptcha) => {
 
     if(message.channel.type == "dm") return;
 
+    if(message.metions.has('753527603612221532')) message.channel.send(new Discord.MessageEmbed()
+        .setDescription('Olá! Eu sou <@753527603612221532>, estou aqui para ajudar a todos. Meu prefix é `!`.')
+        .setFooter(`CislaV3!`)
+        .setColor('#9900cc')
+    )
+
     if(message.content.indexOf(prefix) == 0) { 
         try {
             let cmdSearch = cmdValue.find({aliases: [cmd]}).value();
