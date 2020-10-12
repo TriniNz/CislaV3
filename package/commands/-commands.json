@@ -43,6 +43,15 @@
             ]
         },
         {
+            "name":"setvip",
+            "desc":"Adiciona cargo a um novo membro vip.",
+            "uso":"setvip @Membro @Role",
+            "manutenção":false,
+            "aliases":[
+                "setvip"
+            ]
+        },
+        {
             "name":"aplicar-se",
             "desc":"Envia o URL do formulario para aplicação à equipe.",
             "uso":"aplicar-se",
@@ -116,6 +125,34 @@
                 "ip",
                 "serverinfo",
                 "servidor"
+            ]
+        },
+        {
+            "name":"regban",
+            "desc":"Registra punições feitas in-game.",
+            "manutenção":false,
+            "aliases":[
+                "regban",
+                "registrarban",
+                "rban"
+            ]
+        },
+        {
+            "name":"site",
+            "desc":"Lhe mostra o URL do site oficial.",
+            "manutenção":false,
+            "aliases":[
+                "site"
+            ]
+        },
+        {
+            "name":"tclose",
+            "desc":"Encerra um canal de ticket e remove a reação do membro.",
+            "manutenção":false,
+            "aliases":[
+                "tclose",
+                "ticketclose",
+                "closeticket"
             ]
         }
     ]

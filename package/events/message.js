@@ -15,7 +15,7 @@ exports.run = async (Discord, client, message, dbcmd, savetocaptcha) => {
 
     if(message.channel.type == "dm") return;
 
-    if(message.mentions.has('753527603612221532')) message.channel.send(new Discord.MessageEmbed()
+    if(message.mentions.has('753527603612221532', {'ignoreEveryone': true, 'ignoreRoles':true})) message.channel.send(new Discord.MessageEmbed()
         .setDescription('Olá! Eu sou <@753527603612221532>, estou aqui para ajudar a todos. Meu prefix é `!`.')
         .setFooter(`CislaV3!`)
         .setColor('#9900cc')

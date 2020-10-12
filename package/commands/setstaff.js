@@ -1,6 +1,6 @@
 exports.run = async (Discord, client, message, args) => {
 
-    if(!message.member.hasPermission('ADMININSTRATOR')) return message.channel.send(new Discord.MessageEmbed()
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed()
         .setDescription("❎ | Você não tem permissão para executar este comando.")
         .setFooter(`CislaV3!`)
         .setColor('#9900cc')
