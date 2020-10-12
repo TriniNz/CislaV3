@@ -14,6 +14,12 @@ exports.run = async (Discord, client, message, args) => {
     
         message.guild.channels.cache.get('753954023576567904').messages.fetch('754652899728031784').then(msg => msg.reactions.cache.get(emojiIndentify).users.remove(idIndentify[idIndentify.length - 1]).then(sucess => {
             message.channel.delete({timeout: 5*1000})
+
+            message.guild.channels.cache.get('754654739911934002').send(new Discord.MessageEmbed()
+                .setFooter(`✅ | ${message.author} encerrou o ticket de <@${idIndentify[idIndentify.length - 1]}> (${idIndentify[idIndentify.length - 1]}). `)
+                .setColor('#9900cc')
+                .setTimestamp()
+            );
         }))
 
     } else return message.channel.send(new Discord.MessageEmbed()
