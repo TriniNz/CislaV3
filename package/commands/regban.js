@@ -2,7 +2,7 @@ exports.run = async (Discord, client, message, args) => {
 
     let SendChannel = '764672864866926592';
 
-    if(!message.member.roles.cache.has('735942305055506445')) return message.channel.send(new Discord.MessageEmbed()
+    if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send(new Discord.MessageEmbed()
         .setDescription("❎ | Você não tem permissão para executar este comando.")
         .setFooter(`CislaV3!`)
         .setColor('#9900cc')
@@ -16,7 +16,7 @@ exports.run = async (Discord, client, message, args) => {
         prova = item[2],
         tipo = item[3];
 
-    if(!name || !motivo || !prova || !tipo) return message.channel.send(new Discord.RichEmbed()
+    if(!name || !motivo || !prova || !tipo) return message.channel.send(new Discord.MessageEmbed()
         .setDescription("❎ | Comando utilizado incorretamente. O uso correto é `!regban Nickname; Motivo; Prova; Tipo.`")
         .setFooter(`CislaV3!`)
         .setColor('#9900cc')
