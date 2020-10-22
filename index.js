@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 let savetocaptcha = false,
 //\|/ Logar codigos no bot de testes \|/
-    testInstance = true;
+    testInstance = false;
 
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
