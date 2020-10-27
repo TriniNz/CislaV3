@@ -141,6 +141,7 @@
         {
             "name":"regban",
             "desc":"Registra punições feitas in-game.",
+            "uso":"regban Membro; Motivo; Prova; Tipo",
             "manutenção":false,
             "aliases":[
                 "regban",
@@ -151,6 +152,7 @@
         {
             "name":"site",
             "desc":"Lhe mostra o URL do site oficial.",
+            "uso":"site",
             "manutenção":false,
             "aliases":[
                 "site"
@@ -160,6 +162,7 @@
             "name":"tclose",
             "desc":"Encerra um canal de ticket e remove a reação do membro.",
             "manutenção":false,
+            "uso":"tclose",
             "aliases":[
                 "tclose",
                 "ticketclose",
@@ -169,11 +172,23 @@
         {
             "name":"avaliar",
             "desc":"Avalia um membro da staff.",
+            "uso":"avaliar @Membro Nota Motivo",
             "manutenção":false,
             "aliases":[
                 "avaliar",
                 "avaliação",
                 "av"
+            ]
+        },
+        {
+            "name":"sortear",
+            "desc":"Sorteia um membro dentro de uma mensagem com reações.",
+            "uso":"Sortear MessageID Emoji",
+            "manutenção":false,
+            "aliases":[
+                "sortear",
+                "giveway",
+                "sorteio"
             ]
         }
     ]

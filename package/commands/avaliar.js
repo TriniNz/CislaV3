@@ -21,7 +21,7 @@ exports.run = async (Discord, client, message, args) => {
         .setTimestamp()
     ).then(Msg => {Msg.delete({timeout:15*1000}); message.delete({timeout:15*1000})});
     
-    if(!ratedNumber || !isNaN(ratedNumber) && ratedNumber < 0 || ratedNumber > 10) return message.channel.send(new Discord.MessageEmbed()
+    if(!ratedNumber || isNaN(ratedNumber) || ratedNumber < 0 || ratedNumber > 10) return message.channel.send(new Discord.MessageEmbed()
         .setDescription("❎ | Nota invalida, certefique-se de que é um numero e está acima de 0 e abaixo de 10.")
         .setFooter(`CislaV3!`)
         .setColor('#9900cc')
