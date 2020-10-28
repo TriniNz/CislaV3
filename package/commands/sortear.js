@@ -2,7 +2,6 @@ exports.run = async (Discord, client, message, args) => {
 
     let ChannelID = '770494700045205524'
         MessageID = args[0],
-        React = '🎉',
         savesID = [];
 
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed()
@@ -26,17 +25,10 @@ exports.run = async (Discord, client, message, args) => {
         .setTimestamp()
     ).then(Msg => {Msg.delete({timeout:15*1000}); message.delete({timeout:15*1000})});
 
-    if(!React) return message.channel.send(new Discord.MessageEmbed()
-        .setDescription("❎ | Este não é um emoji valido.")
-        .setFooter(`CislaV3!`)
-        .setColor('#9900cc')
-        .setTimestamp()
-    ).then(Msg => {Msg.delete({timeout:15*1000}); message.delete({timeout:15*1000})});
-
     try {
         message.guild.channels.cache.get(ChannelID).messages.fetch(MessageID).then(async Msgfetched => {
 
-            let uss = await Msgfetched.reactions.cache.get(React).users.fetch({limit: 100})
+            let uss = await Msgfetched.reactions.cache.first().users.fetch({limit: 100})
             uss.map(usr => savesID.push(usr.id));
 
             if(savesID.length < 2) message.channel.send(new Discord.MessageEmbed()
