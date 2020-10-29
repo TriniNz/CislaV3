@@ -38,7 +38,7 @@ function TabbleInfo(client, channelid1, channelid2, channelid3, categoryid, guil
         body = JSON.parse(body);
 
         client.guilds.cache.get(guildID).channels.cache.get(categoryid).setName(ip)
-        client.guilds.cache.get(guildID).channels.cache.get(channelid1).setName("Membros: " + client.guilds.cache.get(guildID).members.cache.size)
+        client.guilds.cache.get(guildID).channels.cache.get(channelid1).setName("Membros: " + client.guilds.cache.get(guildID).memberCount)
         client.guilds.cache.get(guildID).channels.cache.get(channelid2).setName("Players: " + body.players.now)
         client.guilds.cache.get(guildID).channels.cache.get(channelid3).setName(`Status: ${body.status ? "Online!" : "Manutenção :("}`)
 
