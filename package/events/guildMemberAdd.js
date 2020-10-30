@@ -1,6 +1,6 @@
 exports.run = async (Discord, client, member) => {
 
-    let UnregisterRoleID = '735290995985612802';
+    let UnregisterRoleID = '735291847789772885';
     member.roles.add(UnregisterRoleID);
 
     let ChannelBotSpam = '735291757310509178';
