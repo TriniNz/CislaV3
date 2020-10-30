@@ -37,10 +37,15 @@ function TabbleInfo(client, channelid1, channelid2, channelid3, categoryid, guil
     Request(api, (error, response, body) => {
         body = JSON.parse(body);
 
-        client.guilds.cache.get(guildID).channels.cache.get(categoryid).setName(ip)
-        client.guilds.cache.get(guildID).channels.cache.get(channelid1).setName("Membros: " + client.guilds.cache.get(guildID).memberCount)
-        client.guilds.cache.get(guildID).channels.cache.get(channelid2).setName("Players: " + body.players.now)
-        client.guilds.cache.get(guildID).channels.cache.get(channelid3).setName(`Status: ${body.status ? "Online!" : "Manutenção :("}`)
+		let categoryChannel = client.guilds.cache.get(guildID).channels.cache.get(categoryid),
+			MemberChannel = client.guilds.cache.get(guildID).channels.cache.get(channelid1),
+			PlayersChannel = client.guilds.cache.get(guildID).channels.cache.get(channelid2),
+			StatsChannel = client.guilds.cache.get(guildID).channels.cache.get(channelid3);
+		
+		if(categoryChannel.name != ip) categoryChannel.setName(ip);
+		if(MemberChannel.name != "Membros: " + client.guilds.cache.get(guildID).memberCount) MemberChannel.setName("Membros: " + client.guilds.cache.get(guildID).memberCount);
+		if(PlayersChannel.name != "Players: " + body.players.now) PlayersChannel.setName("Players: " + body.players.now);
+		if(StatsChannel.name != `Status: ${body.status ? "Online!" : "Manutenção :("}`) StatsChannel.setName(`Status: ${body.status ? "Online!" : "Manutenção :("}`)
 
     })
 }
