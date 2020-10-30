@@ -71,4 +71,6 @@ client.on('raw', raw => {
 });
 
 
+setInterval(() => {if(savetocaptcha) savetocaptcha = false}, 5*1000*60)
+
 if(!testInstance) {client.login(process.env.logintoken)} else {client.login(process.env.testInstanceToken)}
